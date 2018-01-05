@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = require('./webpack.shared.config')({
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
     path.join(process.cwd(), 'client/index.js'),
   ],
@@ -19,7 +19,9 @@ module.exports = require('./webpack.shared.config')({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
 
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      sourceMap: true
+    }),
   
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
