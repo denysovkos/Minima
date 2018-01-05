@@ -15,7 +15,6 @@ import {
 
   export default handleActions<AuthState | AuthObj>({
     [LOGIN_SUCCESS]: (state: AuthState, action: any): AuthState => {
-      console.log('ACTION IN REDUCER', action);
       return {isAuth: true, userName: action.userName};
     },
   

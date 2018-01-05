@@ -42,7 +42,6 @@ class HorizontalLoginForm extends React.Component<any, FormProps> {
     });
   }
   render() {
-    console.log('props in login form', this.props)
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
     const { auth } = this.props;
 
