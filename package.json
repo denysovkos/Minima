@@ -1,10 +1,10 @@
 {
-  "name": "todomvc-redux-react-ts",
-  "version": "2.1.0",
-  "description": "TodoMVC example using Redux, React, and Typescript ",
+  "name": "MinimaCMS",
+  "version": "0.0.1",
+  "description": "MinimaCMS - business tool for clients, contacts, billing",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jaysoo/todomvc-redux-react-typescript.git"
+    "url": "git@github.com:denysovkos/Minima.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.config.js --progress --profile --colors",
@@ -12,8 +12,8 @@
     "start:prod": "cross-env NODE_ENV=production node server",
     "test": "tsc && mocha --require test-setup --recursive ./dist/**/__spec__/**/*-spec.js"
   },
-  "author": "Jack Hsu <jack.hsu@gmail.com>",
-  "license": "ISC",
+  "author": "Denysov Kostiantyn <denysov.kos@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "antd": "^3.0.3",
     "babel-plugin-emotion": "^8.0.12",
