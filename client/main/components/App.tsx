@@ -30,7 +30,6 @@ class App extends React.Component<any, AppProps> {
   }
 
   render() {
-    console.log('PROPS IN APP: ', this.props);
     const {auth, location} = this.props;
     return (
         <Router>
