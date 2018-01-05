@@ -8,7 +8,7 @@ class Footer extends React.Component {
   render() {
     return (
       <AntFooter style={{ textAlign: 'center' }}>
-        Footer text
+        © {new Date().getFullYear()}, Kostintyn Denysov, All rights reserved
       </AntFooter>
     );
   }

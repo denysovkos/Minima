@@ -4,7 +4,7 @@ class AboutPage extends React.Component {
   render() {
     return (
       <div>
-        About page  
+        Some information & help docs will be here ... but i don`t know when
       </div>
     );
   }

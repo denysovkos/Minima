@@ -35,6 +35,8 @@ module.exports = require('./webpack.shared.config')({
         minifyURLs: true,
       },
       inject: true,
-    })
+    }),
+
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ]
 });

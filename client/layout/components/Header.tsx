@@ -13,7 +13,6 @@ class Header extends React.Component<any, any> {
   handleClick = (e) => {
     e.preventDefault();
     const { logOut } = this.props;
-    console.log(this.props)
     return logOut();
   }
 
@@ -21,16 +20,16 @@ class Header extends React.Component<any, any> {
     const { location, auth, logOut } = this.props;
 
     return (
-      <AntHeader style={{ position: 'fixed', width: '100%' }}>
-      <div className="logo" />
+      <AntHeader style={{ position: 'fixed', width: '100%', display: 'inline-flex' }}>
+      <Icon type="api" style={{ fontSize: 62, color: '#08c', paddingRight: 25 }} />
       <Menu
         theme="dark"
         mode="horizontal"
-        style={{ lineHeight: '64px' }}
+        style={{ lineHeight: '64px', width: '100%' }}
         selectedKeys={[location.pathname]}
       >
         <Menu.Item key="/">
-          <Link to="/">Home page</Link>
+          <Link to="/">Main page</Link>
         </Menu.Item>
         <Menu.Item key="/about">
           <Link to="/about">About</Link>
