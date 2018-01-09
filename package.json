@@ -23,6 +23,7 @@
     "express": "4.15.2",
     "extract-text-webpack-plugin": "2.1.0",
     "history": "^4.7.2",
+    "lodash": "^4.17.4",
     "moment": "^2.20.1",
     "react": "16.0.0",
     "react-dom": "16.0.0",
