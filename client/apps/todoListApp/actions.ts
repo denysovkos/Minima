@@ -11,7 +11,7 @@ import {
     EDIT_TODO_FAIL,
     DELETE_TODO_SUCCESS,
     DELETE_TODO_FAIL
-} from './constants/ActionTypes';
+} from './constants/actionTypes';
 import { resolve } from 'url';
 
 const initialState: TodoList = [];
