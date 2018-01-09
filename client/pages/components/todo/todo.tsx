@@ -1,12 +1,9 @@
 import * as React from 'react';
+import TodoApp from '../../../apps/todoListApp/todoApp';
 
 class ToDoComponent extends React.Component {
   render() {
-    return (
-      <div>
-        ToDo Component
-      </div>
-    );
+    return <TodoApp />;
   }
 }
 
