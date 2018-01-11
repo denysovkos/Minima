@@ -7,12 +7,13 @@ class Content extends React.Component {
 
   render() {
     const ContentWrapper = styled('div')`
-    background: #fff;
-    padding: 24px;
-    min-height: 380px;
+      background: #fff;
+      padding: 24px;
+      min-height: 380px;
     `;
+    
     return (
-      <AntContent style={{ padding: '0 50px', marginTop: 64 }}>
+      <AntContent style={{ padding: '0 10px' }}>
       <ContentWrapper>
         {this.props.children}
       </ContentWrapper>

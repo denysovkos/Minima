@@ -1,60 +1,42 @@
 import * as React from 'react';
 import { Menu, Icon, Button } from 'antd';
+import { Link } from 'react-router-dom'
 
 interface sideBarProps {
-    handleComponentChange: (value: string) => void;
-    handleWidth: (isCollapsed: boolean) => void;
+  location: string;
 }
 
 class SideBarMenu extends React.Component<sideBarProps> {
     state = {
-        collapsed: false,
-        selected: 'todo'
-    }
-
-    toggleCollapsed = () => {
-        const {handleWidth} = this.props;
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-
-        handleWidth(this.state.collapsed);
+        selected: this.props.location.substring(this.props.location.lastIndexOf('/') + 1)
     }
 
     handleSelectedMenu = ({key}) => {
-        const { handleComponentChange } = this.props;
-
         this.setState({selected: key});
-        handleComponentChange(key);
     }
 
   render() {
     return (
-      <div style={{ width: 256 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </Button>
+      <div style={{ width: '100%', marginTop: 64, height: '100%', paddingLeft: 10, paddingTop: 10 }} >
         <Menu
           onClick={({key}): void => this.handleSelectedMenu({key})}
-          mode="inline"
-          inlineCollapsed={this.state.collapsed}
+          mode="horizontal"
           selectedKeys={[this.state.selected]}
         >
+        <Menu.Item key="dashboard">
+          <Link to="/dashboard"><Icon type="bars" /> Dashboard</Link>
+        </Menu.Item>
           <Menu.Item key="todo">
-            <Icon type="bars" />
-            <span>To do</span>
+            <Link to="/dashboard/todo"><Icon type="bars" /> To do</Link>
           </Menu.Item>
           <Menu.Item key="clients">
-            <Icon type="book" />
-            <span>Clients</span>
+            <Link to="/dashboard/clients"><Icon type="book" /> Clients</Link>
           </Menu.Item>
           <Menu.Item key="products">
-            <Icon type="shopping-cart" />
-            <span>Products</span>
+            <Link to="/dashboard/products"><Icon type="shopping-cart" /> Products</Link>
           </Menu.Item>
           <Menu.Item key="billing">
-            <Icon type="wallet" />
-            <span>Billing</span>
+            <Link to="/dashboard/billing"><Icon type="wallet" /> Billing</Link>
           </Menu.Item>
         </Menu>
       </div>

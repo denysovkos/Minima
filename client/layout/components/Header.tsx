@@ -1,15 +1,12 @@
 import * as React from 'react';
-import styled from 'react-emotion';
-
-import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
-const { Header: AntHeader, Content, Footer } = Layout;
+import { Layout, Menu, Icon, Button } from 'antd';
+const { Header: AntHeader } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-
 import { Link } from 'react-router-dom'
 
 class Header extends React.Component<any, any> {
-
+  
   handleClick = (e) => {
     e.preventDefault();
     const { logOut } = this.props;
@@ -17,7 +14,8 @@ class Header extends React.Component<any, any> {
   }
 
   render() {
-    const { location, auth, logOut } = this.props;
+    const { location, auth, logOut, profile } = this.props;
+    let selectedKey = /dashboard/.test(location.pathname) ? '/dashboard' : location.pathname;
 
     return (
       <AntHeader style={{ position: 'fixed', width: '100%', display: 'inline-flex' }}>
@@ -26,15 +24,18 @@ class Header extends React.Component<any, any> {
         theme="dark"
         mode="horizontal"
         style={{ lineHeight: '64px', width: '100%' }}
-        selectedKeys={[location.pathname]}
+        selectedKeys={[selectedKey]}
       >
         <Menu.Item key="/">
-          <Link to="/">Main page</Link>
+          <Link to="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item key="/dashboard">
+          <Link to="/dashboard">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="/about">
           <Link to="/about">About</Link>
         </Menu.Item>
-        {auth.isAuth && !auth.error && <SubMenu title={<span><Icon type="user" />{auth.userName.toUpperCase()}</span>} style={{float: 'right'}}>
+        {auth.isAuth && <SubMenu title={<span><Icon type="user" />{auth.name ? auth.name.toUpperCase() : 'No name'}</span>} style={{float: 'right'}}>
           <Menu.Item key="setting:1">
             <Button ghost type="danger" onClick={this.handleClick} style={{width: '100%'}}>Logout</Button>
           </Menu.Item>
